@@ -16,3 +16,4 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'home'])->name('home');
 Route::post('/', [UserController::class, 'login'])->name('login');
+Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('dashboard');

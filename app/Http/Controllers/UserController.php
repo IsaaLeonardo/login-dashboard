@@ -15,9 +15,13 @@ class UserController extends Controller
         $credentials = request()->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return view('dashboard');
+            return redirect('dashboard');
         }
 
-        return view('login');
+        return redirect('login');
+    }
+
+    public function showDashboard() {
+        return view('dashboard');
     }
 }

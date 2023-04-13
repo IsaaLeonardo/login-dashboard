@@ -15,9 +15,9 @@ class UserController extends Controller
         $credentials = request()->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return 'Login éxitoso';
+            return view('dashboard');
         }
 
-        return 'Login fallido';
+        return view('login');
     }
 }

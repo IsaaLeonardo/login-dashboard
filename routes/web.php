@@ -14,4 +14,5 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', [UsersController::class, 'login'])->name('login');
+Route::get('/', [UsersController::class, 'home'])->name('home');
+Route::post('/', [UsersController::class, 'login'])->name('login');

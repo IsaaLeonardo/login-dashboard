@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,5 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', [UsersController::class, 'home'])->name('home');
-Route::post('/', [UsersController::class, 'login'])->name('login');
+Route::get('/', [UserController::class, 'home'])->name('home');
+Route::post('/', [UserController::class, 'login'])->name('login');

@@ -28,6 +28,8 @@ class UserController extends Controller
 
     public function loadData() {
         $measuraments = Measurement::orderBy('id', 'desc')->take(50)->get()->toArray();
-        return response()->json($measuraments);
+        $reversed_array = array_reverse($measuraments);
+
+        return response()->json($reversed_array);
     }
 }

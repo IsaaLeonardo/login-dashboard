@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     public function loadData() {
-        $measuraments = Measurement::get()->toArray();
+        $measuraments = Measurement::orderBy('id', 'desc')->take(50)->get()->toArray();
         return response()->json($measuraments);
     }
 }

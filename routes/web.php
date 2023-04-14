@@ -17,3 +17,4 @@ use App\Http\Controllers\UserController;
 Route::get('/', [UserController::class, 'home'])->name('home')->middleware('guest');
 Route::post('/', [UserController::class, 'login'])->name('login');
 Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('dashboard')->middleware('auth');
+Route::post('/loadData', [UserController::class, 'loadData'])->name('loadData');

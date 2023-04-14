@@ -19,7 +19,7 @@ httpRequest.onreadystatechange = function() {
 
 window.addEventListener('DOMContentLoaded', () => {
   getData()
-  setInterval(getData, 2000)
+  // setInterval(getData, 2000)
 })
 
 const getData = () => {

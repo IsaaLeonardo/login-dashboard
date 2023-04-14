@@ -65,8 +65,8 @@ function generateGraph(title) {
       {
         name: title,
         data: title == "Temperatura" ? temperature
-                                     : title == "Humedad" ? humidity
-                                     : null
+            : title == "Humedad" ? humidity
+            : null
       },
     ],
     xaxis: {

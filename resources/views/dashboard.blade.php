@@ -57,9 +57,33 @@ function generateGraph(title) {
       type: "line",
       animations: {
         initialAnimation: {
-          enabled: false
+          enabled: true
+        },
+        enabled: true,
+        easing: 'linear',
+        dynamicAnimation: {
+          speed: 1000
         }
+      },
+      toolbar: {
+        show: false
+      },
+      zoom: {
+        enabled: false
       }
+    },
+    title: {
+      text: title,
+      align: 'center'
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    markers: {
+      size: 0
+    },
+    legend: {
+      show: false
     },
     series: [
       {

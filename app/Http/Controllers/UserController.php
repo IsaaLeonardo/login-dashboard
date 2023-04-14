@@ -24,8 +24,7 @@ class UserController extends Controller
 
     public function showDashboard() {
         $measuraments = Measurement::get()->toArray();
-        dd($measuraments);
 
-        return view('dashboard');
+        return view('dashboard', ['measurements' => $measuraments]);
     }
 }

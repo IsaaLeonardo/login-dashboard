@@ -39,7 +39,7 @@ const getData = () => {
 const convertData = (data, dataType) => {
   let convertedData = data.map((obj) => {
     return {
-      x: new Date(obj.fecha).toLocaleString("es-VE", { timeZone: 'America/Caracas', dateStyle: 'short', hour12: false, timeStyle: 'medium' }),
+      x: Date.parse(obj.fecha),
       y: obj[dataType]
     }
   });
@@ -92,7 +92,7 @@ function generateGraph(title) {
       },
     ],
     xaxis: {
-      type: "numeric"
+      type: "datetime"
     }
   };
 

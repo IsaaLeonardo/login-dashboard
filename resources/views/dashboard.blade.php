@@ -3,6 +3,12 @@
 @section('content')
 <h1>Dashboard</h1>
 
+<div id="chartTemperatura"></div>
+
+<div id="chartHumedad"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <script>
 let data, temperature, humidity
 
@@ -17,12 +23,12 @@ httpRequest.onreadystatechange = function() {
     generateGraph('Temperatura')
     humidity = convertData(data, 'humedad')
     generateGraph('Humedad')
+    console.log(temperature)
   }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   getData()
-  // setInterval(getData, 2000)
 })
 
 const getData = () => {
@@ -40,15 +46,7 @@ const convertData = (data, dataType) => {
 
   return convertedData
 }
-</script>
 
-<div id="chartTemperatura"></div>
-
-<div id="chartHumedad"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-<script>
 function generateGraph(title) {
   let options = {
     chart: {
@@ -101,6 +99,11 @@ function generateGraph(title) {
   let chart = new ApexCharts(document.getElementById("chart" + title), options);
 
   chart.render();
+
+  // setInterval(getData, 2000)
+  // chart.updateSeries([{
+  //     data: data
+  //   }])
 }
 </script>
 @endsection

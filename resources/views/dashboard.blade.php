@@ -10,10 +10,15 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <script>
-let data, temperature, humidity
+// counter+
+let data, temperature, humidity, counter = 0
+// counter-
 
 const form = new FormData()
 form.append('_token', '{{ csrf_token() }}')
+// counter+
+form.append('start', counter)
+// counter-
 
 const httpRequest = new XMLHttpRequest()
 httpRequest.onreadystatechange = function() {
@@ -32,6 +37,10 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 const getData = () => {
+  // counter+
+  counter += 50
+  form.set('start', counter)
+  // counter-
   httpRequest.open('POST', "/loadData")
   httpRequest.send(form)
 }
@@ -100,10 +109,11 @@ function generateGraph(title) {
 
   chart.render();
 
-  // setInterval(getData, 2000)
   // chart.updateSeries([{
   //     data: data
   //   }])
 }
+
+setInterval(getData, 10000);
 </script>
 @endsection
